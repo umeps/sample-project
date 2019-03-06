@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Vue.js</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div class="box" id="Vue">
+        <input v-on:keypress.enter="addTodo" v-model="input" type="text">
+        <button v-on:click="addTodo">追加</button>
+        <ul v-for="todo in todos">
+                <li>
+                  <input v-on:change="doneTodo(todo)" v-model="todo.done" type="checkbox">
+                  <span v-bind:class="{'done': todo.done}">{{ todo.title }}</span>
+                  <button v-on:click="deleteTodo(todo)">削除</button>
+                </li>
+              </ul>
+</div>
+<script src="main.js"></script>
+</body>
+</html>

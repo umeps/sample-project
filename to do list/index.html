@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Vue.js</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div class="box" id="Vue">
+  <input v-on: kyepress.enter="addTodo" v-model="input" type="text">
+  <button v-on:click="addTodo">add</button>
+  <ul v-for=" item  in todos" >
+    <li>{{item.text}}</li>
+  </ul>
+
+
+  <button v-on:click="deleteTodo">delete</button>
+</div>
+<script src="./main.js"></script>
+</body>
+</html>
