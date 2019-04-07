@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>Vue.js</title>
+</head>
+<body>
+<div id="Vue">
+  <div class="bg-primary">
+    {{ item.firstName }}
+    {{ item.lastName }}
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#Vue', //データバインディングの対象となる、DOM要素を指定
+        data: {
+            item: {}
+        },
+        mounted() {
+            axios
+                .get('/sample.json')
+                .then(response => {
+                    this.item = response.data
+                })
+        },
+        methods: {}
+    })
+</script>
+</body>
+</html>

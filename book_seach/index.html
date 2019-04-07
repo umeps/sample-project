@@ -1,0 +1,30 @@
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Vue.js</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="Vue">
+  <div class="bg-primary overflow-hidden p-3">
+  <div class="h1 text-white float-left">書籍アプリ</div>
+  <button type="button" class="btn btn-primary border border-white float-right p-3 col-3">bookmark</button>
+ </div>
+ <div class="p-3 overflow-hidden">
+    <input  class="border-dark p-3 col-8 float-left" v-model="message" placeholder="edit me">
+    Message is: {{ message }}
+    <button type="button" class="btn btn-primary border border-white float-right p-3 col-3 bg-info float-right">search</button>
+
+
+    </div>
+ </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>
