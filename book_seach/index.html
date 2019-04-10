@@ -10,19 +10,35 @@
 </head>
 <body>
 <div id="Vue">
-  <div class="bg-primary overflow-hidden p-3">
+  <div class="bg-primary overflow-hidden p-3"> <!--書籍アプリ-->
   <div class="h1 text-white float-left">書籍アプリ</div>
-  <button type="button" class="btn btn-primary border border-white float-right p-3 col-3">bookmark</button>
- </div>
- <div class="p-3 overflow-hidden">
-    <input  class="border-dark p-3 col-8 float-left" v-model="message" placeholder="edit me">
-    Message is: {{ message }}
-    <button type="button" class="btn btn-primary border border-white float-right p-3 col-3 bg-info float-right">search</button>
+  <button type="button" class="btn btn-primary border border-white float-right p-3 col-3 text-center">bookmark</button>
+ </div> <!--書籍アプリ-->
+  <div class="contents p-3 overflow-hidden">
+ <div class=" overflow-hidden  p-3"> <!--検索box-->
+    <input  class="border border-primary p-3 col-8 float-left" v-model="message" placeholder="edit me">
+    <!-- Message is: {{ message }} -->
+    <button type="button" class="btn btn-primary border border-white float-right p-3 col-3 bg-info float-right　text-center">search</button>
 
+
+    </div> <!--検索box-->
+    <div class="border">
+      <div id="app">
+        <p v-cloak>
+            <input v-model.number="limit">件を表示する
+        </p>
+        <ul>
+            <li v-for="item in list" :key="item.id">
+                書籍名：{{ item.title }}著者：{{ item.author }}:発売日{{item.release_date}}:値段{{item.price}}円:img{{item.image}}:id{{item._id}}
+            </li>
+        </ul>
+      </div>
+      
 
     </div>
- </div>
-</div>
+
+ </div> <!--contenrs-->
+
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="./index.js"></script>
