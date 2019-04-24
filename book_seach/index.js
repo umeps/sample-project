@@ -10,5 +10,11 @@ var vm = new Vue({
           this.list = response.data
       })
   },
-  methods: {}
-})
+
+    filters: {
+        moment: function (date) {
+            return moment(date).format('YYYY/MM/DD HH:mm');
+        }
+    }
+
+});

@@ -10,30 +10,43 @@
 </head>
 <body>
 <div id="Vue">
+
   <div class="bg-primary overflow-hidden p-3"> <!--書籍アプリ-->
   <div class="h1 text-white float-left">書籍アプリ</div>
-  <button type="button" class="btn btn-primary border border-white float-right p-3 col-3 text-center">bookmark</button>
+  <button type="button" class="btn btn-primary border border-white float-right p-3 col-xs-3 text-center">bookmark</button>
  </div> <!--書籍アプリ-->
   <div class="contents p-3 overflow-hidden">
  <div class=" overflow-hidden  p-3"> <!--検索box-->
-    <input  class="border border-primary p-3 col-8 float-left" v-model="message" placeholder="edit me">
+    <input  class="border border-primary p-3 col-8  col-md-6 float-left" v-model="message" placeholder="edit me">
     <!-- Message is: {{ message }} -->
-    <button type="button" class="btn btn-primary border border-white float-right p-3 col-3 bg-info float-right　text-center">search</button>
+    <button type="button" class="btn btn-primary border border-white float-right p-3 col-4  col-md-2 bg-info float-right　text-center">search</button>
 
 
     </div> <!--検索box-->
     <div class="border">
       <div id="app">
-        <p v-cloak>
+        <!-- <p v-cloak>
             <input v-model.number="limit">件を表示する
-        </p>
-        <ul>
-            <li v-for="item in list" :key="item.id">
-                書籍名：{{ item.title }}著者：{{ item.author }}:発売日{{item.release_date}}:値段{{item.price}}円:img{{item.image}}:id{{item._id}}
+        </p> -->
+
+        <ul class="p-0">
+          
+            <li class="list-unstyled col-xs border overflow-hidden" v-for="item in list " :key="item.id">
+              <h6 class="col-xs  p-3 small">ゲームを作りながら楽しく学べるPythonプログラミング</h6>
+              <div class="col-xs-4 float-left m-2"><img :src=item.image width="110" height="150" class=""></div>
+              <div class="col-xs-4 float-rigth small m-3">
+              書籍名{{ item.title }} <br><br>
+              著者{{ item.author }}<br>
+              値段{{item.price}}円<br>
+              発売日{{item.release_date}}<br>
+              <button class="btn btn-primary" type="submit">ブックマーク</button>
+            </div>
+            
             </li>
         </ul>
+
       </div>
-      
+
 
     </div>
 
