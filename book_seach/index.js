@@ -15,6 +15,11 @@ var vm = new Vue({
         moment: function (date) {
             return moment(date).format('YYYY/MM/DD HH:mm');
         }
+    },
+    computed:{
+        tmpList(){
+            return this.list.slice()
+        }
     }
-
 });
+
