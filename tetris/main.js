@@ -1,6 +1,5 @@
-let can = document.getElementById("can");
-
-let con = can.getContext("2d");
+//落ちるスピード
+let gameSpeed = 300;
 
 //フィールドサイズ
 const fieldCol = 10;
@@ -9,20 +8,27 @@ const fieldRow = 20;
 //ブロック１つのサイズ（ピクセル）
 const blockSize = 30;
 
-//テトロミノのサイズ
-const tetroSize = 4;
-
 //スクリーンサイズ
 const screenWidth = blockSize * fieldCol;
 const screenHeight = blockSize * fieldRow;
+
+//テトロミノのサイズ
+const tetroSize = 4;
+
+let can = document.getElementById("can");
+let con = can.getContext("2d");
 
 //スクリーンの枠
 can.width = screenWidth;
 can.height = screenHeight;
 can.style.border ="4px solid #696969";
 
+
+
+
+//ドロップの色
 const tetroColors = [
-    "#000",             //空
+    "#6CF",             //空
     "#6CF",             //水色
     "#F92",             //オレンジ
     "#66F",             //青
@@ -80,24 +86,26 @@ const tetroTypes =[
 
 ]
 
-//テトロミノの出現する場所
+// // 画像と効果音
+// let se1, se2, se3;
+// se1 = new Audio("se1.mp3");
+// se2 = new Audio("se2.mp3");
+// se3 = new Audio("se3.mp3");
+// se4 = new Audio("se4.mp3");
+
+//テトロミノの出現する初期位置
 const startX = fieldCol/2 - tetroSize/2;
 const startY = 0;
 
 //テトロミノ本体
 let tetro;
 
+//テトロミノの形
+let tetro7;
+
 //テトロミノの座標
 let tetro_x = startX;
 let tetro_y = startY;
-
-//テトロミノの種類
-let tetro7;
-
-//テトロミノのランダム
-tetro7 = Math.floor( Math.random()*(tetroTypes.length-1) )+1;
-tetro = tetroTypes[ tetro7 ];
-
 
 //フィールドの中身
 let field = [];
@@ -105,17 +113,25 @@ let field = [];
 //game over
 let over = false;
 
+//消したライン数
+let lineScore = 0;
+
+// スコア
+let score = 0;
+
+//テトロミノのランダム
+tetro7 = Math.floor( Math.random()*(tetroTypes.length-1) )+1;
+tetro = tetroTypes[ tetro7 ];
+
+
 //イニシャライズでスタート
 init();
-
+starting();
 //表示
-drawAll();
+// drawAll();
 
-//落ちるスピード
-let gameSpeed = 300;
-
-//落ちるスピード
-setInterval( dropTetro, gameSpeed);
+// //落ちるスピード
+// setInterval( dropTetro, gameSpeed);
 
 //初期化
 function init(){
@@ -140,13 +156,17 @@ function drawBlock(x,y,c){
 
     con.fillStyle = tetroColors[c];
     con.fillRect(px,py, blockSize,blockSize);
-    con.strokeStyle="black";
-    con.strokeRect(px,py, blockSize,blockSize);
+    // con.strokeStyle="black";
+    // con.strokeRect(px,py, blockSize,blockSize);
 
 }
 
 //全てを描画する
 function drawAll(){
+
+    se1.pause();
+    se1.play();
+    // context.fillStyle = "black";
     //フィールド部分
     con.clearRect(0,0, screenWidth,screenHeight);
 
@@ -154,37 +174,95 @@ function drawAll(){
 
         for (let x = 0; x<fieldCol; x++){
 
-            //テトロ本体
-            if(field [y][x] ){
+            if(field [y][x] !==0){
 
                drawBlock(x,y,field[y][x]);
         } }
     }
+    
+     //着地点を計算
+     let plus = 0;
+     while (checkMove(0,plus+1))plus++;
+
     //テトロミノ部分
     for (let y = 0; y<tetroSize; y++){
 
         for (let x = 0; x<tetroSize; x++){
 
-            if(tetro [y][x] ){
+            if(tetro [y][x] ==1){
 
+                //予測位置
+                drawBlock(tetro_x+x, tetro_y+y+plus, 0);
+                //上のテトロ
                 drawBlock(tetro_x+x, tetro_y+y, tetro7);
+
+                if (tetroTypes[tetro7][y][x]) {
+                    drawBlock()
         } }
-    }
+        
+    }}
+    drawInfo();
+ }
 
-    //game overの表示
-    if(over){
-
-        let s = "GAME OVER";
-        con.font = "40px 'MSゴシック'";
-        let w = con.measureText(s).width;
+function starting(){
+    context.fillStyle = "black";
+    context.fillRect(0, 0, screenWidth, screenHeight);
+    
+    let s = "CLICK SCREEN TO START!";
+        context.font = "10px 'Press Start 2P'";
+        let w = context.measureText(s).width;
         let x = screenWidth/2 - w/2;
-        let y = screenHeight/2 -20;
-        con.lineWidth =4;
-        con.strokeText(s,x,y);
-        con. fillStyle = "white";
-        con.fillText(s,x,y);
-    }
+        let y = screenHeight/2 + 5;
+        context.lineWidth = 4;
+        context.strokeText(s,x,y);
+        context.fillStyle = "white";
+        context.fillText(s,x,y);
 
+    document.getElementById("can").onclick = function() {
+        keyControl();
+        drawAll();
+        setInterval(dropTetro, gameSpeed);
+    }
+        
+}
+
+function drawInfo(){
+
+    let w;
+    context.fillStyle = "white";
+
+    let s = "SCORE:";
+        context.font = "12px 'Press Start 2P'";
+        context.fillStyle = "white";
+        context.fillText(s,5,20);
+        s = "" + lineScore;
+        w = context.measureText(s).width;
+        context.fillText(s,90,20)
+
+    if (over) {
+        se1.pause();
+        se4.pause();
+        se4.play();
+        let s = "GAME OVER";
+        context.font = "26px 'Press Start 2P'";
+        let w = context.measureText(s).width;
+        let x = screenWidth/2 - w/2;
+        let y = screenHeight/2 + 5;
+        context.lineWidth = 4;
+        context.strokeText(s,x,y);
+        context.fillStyle = "white";
+        context.fillText(s,x,y);
+
+        let s2 = " CLICK SCREEN TO RETRY!"
+        context.font = "10px 'Press Start 2P'";
+        let y2 = screenHeight/2 + 30;
+        context.strokeText(s2,x,y2);
+        context.fillStyle = "white";
+        context.fillText(s2,x,y2);
+
+        document.getElementById("can").onclick = function() {
+            location.reload();
+        }}
 }
 
 //ブロックの衝突判定
@@ -196,7 +274,7 @@ function checkMove( mx, my ,newTetro){
 
             for (let x = 0; x<tetroSize; x++){
 
-                if (newTetro[y][x]){
+                if (newTetro[y][x] ==1){
                     let nx = tetro_x + mx + x;
                     let ny = tetro_y + my + y;
 
@@ -272,6 +350,20 @@ function checkLine(){
 
         }
 
+        if (lineCount) {
+            se3.pause();
+            se3.play();
+            lineScore + lineCount;
+            score += 100*(2**(lineCount-1));
+        }
+
+        if (lineCount) {
+            lineScore += (lineCount * 100);
+        }
+        if(lineCount >= 2) {
+            lineScore += (lineCount * 150);
+        }
+
 }
 
 
@@ -299,6 +391,7 @@ function dropTetro(){
     drawAll(); 
 }
 
+function keyControl() {
 //キーボードが押された時の処理
 document.onkeydown = function(e){
 
@@ -326,4 +419,6 @@ document.onkeydown = function(e){
 
     }
     drawAll();
+}
+
 }
