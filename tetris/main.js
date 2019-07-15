@@ -105,17 +105,14 @@ let field = [];
 //game over
 let over = false;
 
-//消したline数
-let lines = 0;
-
-//score
-let score = 0;
-
+//イニシャライズでスタート
 init();
+
+//表示
 drawAll();
 
 //落ちるスピード
-let gameSpeed = 1000;
+let gameSpeed = 300;
 
 //落ちるスピード
 setInterval( dropTetro, gameSpeed);
@@ -132,13 +129,8 @@ function init(){
             field [y][x] = 0;
         }
     }
-
-//テスト
-    // field[18][0] = 1;
-    // field[19][0] = 1;
-    // field[19][1] = 1;
-
 }
+
 
 //ブロック１つを描画する
 function drawBlock(x,y,c){
@@ -161,7 +153,8 @@ function drawAll(){
     for (let y = 0; y<fieldRow; y++){
 
         for (let x = 0; x<fieldCol; x++){
-        
+
+            //テトロ本体
             if(field [y][x] ){
 
                drawBlock(x,y,field[y][x]);
@@ -171,12 +164,13 @@ function drawAll(){
     for (let y = 0; y<tetroSize; y++){
 
         for (let x = 0; x<tetroSize; x++){
-        
+
             if(tetro [y][x] ){
 
                 drawBlock(tetro_x+x, tetro_y+y, tetro7);
         } }
     }
+
     //game overの表示
     if(over){
 
@@ -190,6 +184,7 @@ function drawAll(){
         con. fillStyle = "white";
         con.fillText(s,x,y);
     }
+
 }
 
 //ブロックの衝突判定
@@ -200,8 +195,7 @@ function checkMove( mx, my ,newTetro){
         for (let y = 0; y<tetroSize; y++){
 
             for (let x = 0; x<tetroSize; x++){
-            
-                
+
                 if (newTetro[y][x]){
                     let nx = tetro_x + mx + x;
                     let ny = tetro_y + my + y;
