@@ -18,6 +18,7 @@ const tetroSize = 4;
 let can = document.getElementById("can");
 let con = can.getContext("2d");
 
+
 //スクリーンの枠
 can.width = screenWidth;
 can.height = screenHeight;
@@ -25,10 +26,9 @@ can.style.border ="4px solid #696969";
 
 
 
-
 //ドロップの色
 const tetroColors = [
-    "#6CF",             //空
+    "rgba(0,0,0,0.1)",             //空
     "#6CF",             //水色
     "#F92",             //オレンジ
     "#66F",             //青
@@ -86,12 +86,12 @@ const tetroTypes =[
 
 ]
 
-// // 画像と効果音
-// let se1, se2, se3;
-// se1 = new Audio("se1.mp3");
-// se2 = new Audio("se2.mp3");
-// se3 = new Audio("se3.mp3");
-// se4 = new Audio("se4.mp3");
+// 画像と効果音
+let se1, se2, se3;
+se1 = new Audio("se1.mp3");
+se2 = new Audio("se2.mp3");
+se3 = new Audio("se3.mp3");
+se4 = new Audio("se4.mp3");
 
 //テトロミノの出現する初期位置
 const startX = fieldCol/2 - tetroSize/2;
@@ -145,7 +145,27 @@ function init(){
             field [y][x] = 0;
         }
     }
+
+    //最初のテトロの為のネクストを入れる
+    tetro_n = Math.floor(Math.random()*(tetroTypes.length-1))+1;
+
+    //テトロをセットして描画開始！
+    // setTetro();
+    drawAll();
 }
+
+
+// function setTetro(){
+    
+//     //ネクストを現在のテトロにする
+//     tetro7 = tetro_n;
+//     tetro = tetroTypes[ tetro7 ];
+//     tetro_n = Math.floor(Math.random()*(tetroTypes.length-1))+1;
+
+//     //位置を初期位置にする
+//     tetro_x = startX;
+//     tetro_y = startY;
+// }
 
 
 //ブロック１つを描画する
@@ -156,9 +176,9 @@ function drawBlock(x,y,c){
 
     con.fillStyle = tetroColors[c];
     con.fillRect(px,py, blockSize,blockSize);
-    // con.strokeStyle="black";
-    // con.strokeRect(px,py, blockSize,blockSize);
-
+    con.strokeStyle="black";
+    con.lineWidth = 1;
+    con.strokeRect(px,py, blockSize,blockSize);
 }
 
 //全てを描画する
@@ -166,7 +186,7 @@ function drawAll(){
 
     se1.pause();
     se1.play();
-    // context.fillStyle = "black";
+    // con.fillStyle = "black";
     //フィールド部分
     con.clearRect(0,0, screenWidth,screenHeight);
 
@@ -195,28 +215,32 @@ function drawAll(){
                 drawBlock(tetro_x+x, tetro_y+y+plus, 0);
                 //上のテトロ
                 drawBlock(tetro_x+x, tetro_y+y, tetro7);
-
-                if (tetroTypes[tetro7][y][x]) {
-                    drawBlock()
-        } }
+                
+                //ネクストテトロ
+        //         if (tetroTypes[tetro_n][y][x]) {
+        //             drawBlock(13+x,4+y, tetro_n);
+        // } 
+    
+            }
         
     }}
+    
     drawInfo();
  }
 
 function starting(){
-    context.fillStyle = "black";
-    context.fillRect(0, 0, screenWidth, screenHeight);
+    con.fillStyle = "black";
+    con.fillRect(0, 0, screenWidth, screenHeight);
     
     let s = "CLICK SCREEN TO START!";
-        context.font = "10px 'Press Start 2P'";
-        let w = context.measureText(s).width;
+        con.font = "10px 'Press Start 2P'";
+        let w = con.measureText(s).width;
         let x = screenWidth/2 - w/2;
         let y = screenHeight/2 + 5;
-        context.lineWidth = 4;
-        context.strokeText(s,x,y);
-        context.fillStyle = "white";
-        context.fillText(s,x,y);
+        con.lineWidth = 4;
+        con.strokeText(s,x,y);
+        con.fillStyle = "white";
+        con.fillText(s,x,y);
 
     document.getElementById("can").onclick = function() {
         keyControl();
@@ -229,36 +253,61 @@ function starting(){
 function drawInfo(){
 
     let w;
-    context.fillStyle = "white";
+    con.fillStyle = "white";
 
     let s = "SCORE:";
-        context.font = "12px 'Press Start 2P'";
-        context.fillStyle = "white";
-        context.fillText(s,5,20);
+        con.font = "12px 'Press Start 2P'";
+        con.fillStyle = "white";
+        con.fillText(s,5,20);
         s = "" + lineScore;
-        w = context.measureText(s).width;
-        context.fillText(s,90,20)
+        w = con.measureText(s).width;
+        con.fillText(s,90,20)
+
+    let n ="NEXT"
+        con.font = "12px 'Press Start 2P'";
+        con.fillStyle = "white";
+        con.fillText(n,200,20);
+    
+    // let w;
+    // con.fillStyle = "white";
+
+    // let s = "NEXT"
+    // con.fillText = (s, 410,120);
+
+    // s = "SCORE";
+    // con.fillText = (s, 410,300);
+    // s = ""+score;
+    // w = con.measureText(s).width;
+    // con.fillText(s, 560-w,340);
+
+    // s = "LINES";
+    // w = con.measureText(s).width;
+    // con.fillText(s, 410,400);
+    // s = ""+lines;
+    // w = con.measureText(s).width;
+    // con.fillText(s, 560-w,440);
+        
 
     if (over) {
         se1.pause();
         se4.pause();
         se4.play();
         let s = "GAME OVER";
-        context.font = "26px 'Press Start 2P'";
-        let w = context.measureText(s).width;
+        con.font = "26px 'Press Start 2P'";
+        let w = con.measureText(s).width;
         let x = screenWidth/2 - w/2;
         let y = screenHeight/2 + 5;
-        context.lineWidth = 4;
-        context.strokeText(s,x,y);
-        context.fillStyle = "white";
-        context.fillText(s,x,y);
+        con.lineWidth = 4;
+        con.strokeText(s,x,y);
+        con.fillStyle = "white";
+        con.fillText(s,x,y);
 
         let s2 = " CLICK SCREEN TO RETRY!"
-        context.font = "10px 'Press Start 2P'";
+        con.font = "10px 'Press Start 2P'";
         let y2 = screenHeight/2 + 30;
-        context.strokeText(s2,x,y2);
-        context.fillStyle = "white";
-        context.fillText(s2,x,y2);
+        con.strokeText(s2,x,y2);
+        con.fillStyle = "white";
+        con.fillText(s2,x,y2);
 
         document.getElementById("can").onclick = function() {
             location.reload();
@@ -355,6 +404,7 @@ function checkLine(){
             se3.play();
             lineScore + lineCount;
             score += 100*(2**(lineCount-1));
+            
         }
 
         if (lineCount) {
@@ -403,9 +453,9 @@ document.onkeydown = function(e){
         case 37: //left
             if( checkMove(-1 , 0)) tetro_x--;
             break;
-        case 38: //top
-            if( checkMove(0 , -1)) tetro_y--;
-            break;
+        // case 38: //top
+        //     if( checkMove(0 , -1)) tetro_y--;
+        //     break;
         case 39: //right
             if( checkMove(1 , 0))  tetro_x++;
             break;
@@ -414,7 +464,9 @@ document.onkeydown = function(e){
             break;
         case 32: //space
             let newTetro = rotate();
-            if( checkMove(0, 0, newTetro)) tetro = newTetro;
+            if( checkMove(0, 0, newTetro)) 
+            
+            tetro = newTetro;
             break;
 
     }
@@ -422,3 +474,4 @@ document.onkeydown = function(e){
 }
 
 }
+
