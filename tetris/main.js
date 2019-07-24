@@ -147,7 +147,7 @@ function init(){
     }
 
     //最初のテトロの為のネクストを入れる
-    tetro_n = Math.floor(Math.random()*(tetroTypes.length-1))+1;
+    // tetro_n = Math.floor(Math.random()*(tetroTypes.length-1))+1;
 
     //テトロをセットして描画開始！
     // setTetro();
@@ -263,10 +263,10 @@ function drawInfo(){
         w = con.measureText(s).width;
         con.fillText(s,90,20)
 
-    let n ="NEXT"
-        con.font = "12px 'Press Start 2P'";
-        con.fillStyle = "white";
-        con.fillText(n,200,20);
+    // let n ="NEXT"
+    //     con.font = "12px 'Press Start 2P'";
+    //     con.fillStyle = "white";
+    //     con.fillText(n,200,20);
     
     // let w;
     // con.fillStyle = "white";
@@ -474,4 +474,3 @@ document.onkeydown = function(e){
 }
 
 }
-

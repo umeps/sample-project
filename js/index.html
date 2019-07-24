@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        const BMI_SLIM1 = 18.5;
+        const BMI_SLIM2 = 20.5;
+        const BMI_NORMAL = 25.0;
+        const BMI_FAT1 = 30.5;
+        const BMI_FAT2 = 35.0;
+        const BMI_FAT3 = 40.0;
+
+        // let myName = "梅野";
+        // let myHeight = 170;
+        // let myWeight = 75;
+
+     
+
+        // document.write(myBMI+"<br>");
+        
+        // document.write(myName+"おはよう<br>");
+        // document.write("身長は"+myHeight+"cm<br>");
+        // document.write("体重は"+myWeight+"kg<br>");
+        // document.write("あなたのBMIは"+myBMI+"です<br>");
+        // how();
+    //     function how(){
+    //     if (myBMI<BMI_SLIM1){
+    //         document.write("your so skinny。<br>");
+    //     }
+    //     else if (myBMI<BMI_SLIM2){
+    //         document.write("your slim<br>");
+    //         }
+    //     else if (myBMI<BMI_NORMAL){
+    //         document.write("your normal<br>");
+    //     }
+    //     else if (myBMI<BMI_FAT1){
+    //         document.write("your little bit fat<br>");
+    //     }
+    //     else if(myBMI<BMI_FAT2){
+    //         document.write("your fat<br>");
+    //     }
+    //     else if(myBMI<BMI_FAT3){
+    //         document.write("your fucking sit <br>");
+    //     }
+    //     else{
+    //         document.write("what<br>");
+    //     }
+    // }
+        // let score =10000;
+        
+        // for(let i=0 ,j=10; i<=10 && j>0; i+=2 ,j--){
+        //     document.write(i+"<br>");   
+        //     document.write(j+"<br>");   
+        // }
+
+        // for(let i=0;i<10;i++){
+        //     if(i==5)continue;
+        //     document.write(i+"<br>");
+        // }
+        // let flag =true;
+        // let i =0;
+        // while(flag){
+        //     if (i==5) flag=false;
+        //     document.write(i +"<br>");
+        //     i++;
+        // }
+        
+    //     for( let i=0; i<10 ; i++ )
+	// {
+	// 	bmi();
+	// }
+
+    // function bmi(){
+    //     document.write(myName + "、おはよう<BR>");
+	// 	document.write("身長は"+myHeight+"cm<BR>");
+	// 	document.write("体重は"+myWeight+"kg<BR>");
+	// 	document.write("あなたのBMIは"+myBMI+"です。<BR>");
+	// 	document.write(myName + "、さようなら<BR>");
+		
+	// 	myWeight +=5;
+	// 	myBMI = myWeight / (myHeight/100)**2 ;
+
+    //     how();
+    // }
+
+
+    // function printBMI(name,myHeight,myWeight)
+	// {
+	// 	document.write(myName + "、おはよう<BR>");
+	// 	document.write("身長は"+myHeight+"cm<BR>");
+	// 	document.write("体重は"+myWeight+"kg<BR>");
+	// 	document.write("あなたのBMIは"+myBMI+"です。<BR>");
+	// 	document.write(myName + "、さようなら<BR>");
+	// }
+	// function calcBMI(myHeight,myWeight)
+	// {
+	// 	return myHeight / (myWeight/100)**2;
+	// }
+    
+    // printBMI("山根",180,54);
+	// printBMI("田中",187,58);
+	// printBMI("小杉",170,110);
+
+
+    // function printBMI(name,height,weight)
+	// {
+    //     let bmi= weight / (height/100)**2;
+    //     let myBMI = weight/(height*height/10000);
+	// 	document.write(name + "、おはよう<BR>");
+	// 	document.write("身長は"+height+"cm<BR>");
+	// 	document.write("体重は"+weight+"kg<BR>");
+	// 	document.write("あなたのBMIは"+myBMI+"です。<BR>");
+	// 	document.write(name + "、さようなら<BR><BR>");
+	// }
+	
+	// printBMI("山根",180,54);
+	// printBMI("田中",187,58);
+    // printBMI("小杉",170,110);
+    
+    class parson
+	{
+		constructor(name,height,weight)
+		{
+			this.name   = name;
+			this.height = height;
+			this.weight = weight;
+		}
+		printBMI()
+		{
+			let bmi= this.weight / (this.height/100)**2;
+			document.write(this.name + "、おはよう<BR>");
+			document.write("身長は"+this.height+"cm<BR>");
+			document.write("体重は"+this.weight+"kg<BR>");
+			document.write("あなたのBMIは"+bmi+"です。<BR>");
+			document.write(this.name + "、さようなら<BR>");
+			document.write("<BR>");
+		}
+		eat( val )
+		{
+			document.write(this.name + "はご飯を食べる<BR>");
+			this.weight += val;
+			document.write(val + "kg体重が増えました<BR>");
+			document.write("<BR>");
+		}
+		run( val )
+		{
+			document.write(this.name + "は凄い走った<BR>");
+			this.weight -= val;
+			document.write(val + "kg体重が減りました<BR>");
+			document.write("<BR>");
+		}
+    }
+
+   
+    let tanaka = new parson("田中",187,58 );
+    let yamane = new parson("山根",180,54 );
+    let kosugi = new parson("小杉",170,110 );
+    
+    // let member = [];
+	// member[0] = new parson("田中",187,58 );
+	// member[1] = new parson("山根",180,54 );
+    // member[2] = new parson("小杉",170,110 );
+    
+    let member = [
+		new parson("田中",187,58 ),
+		new parson("山根",180,54 ),
+		new parson("小杉",170,110 )
+	];
+	tanaka.printBMI();
+	tanaka.eat(1);
+	tanaka.printBMI();
+	tanaka.run(2);
+    tanaka.printBMI();
+
+
+    </script>
+
+
+</body>
+</html>

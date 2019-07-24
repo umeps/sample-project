@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Tetris</title>
+  </head>
+  <body>
+      <div class="bcg-container">
+          <div class="main-container">
+              <div class="canvas-container" id="canvasContainer">
+                  <canvas id="canvas"></canvas>
+                  <script src="tetris.js"></script>
+              </div>
+              <div class="info-canvas ">
+                  <p>▶︎ : MOVE TO RIGHT</p><br>
+                  <p>◀︎ : MOVE TO LEFT</p><br>
+                  <p>▼ : DROP STRAIGHT TO BOTTOM</p><br>
+                  <p>[SPACE] : ROTATE</p>
+              </div>
+          </div><!--main-container end-->
+      </div><!--bcg-container end-->
+  </body>
+</html>

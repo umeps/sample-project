@@ -1,0 +1,33 @@
+body {
+    font-family: 'Press Start 2P';
+    font-size: 14px;
+    color: white;  
+}
+
+.bcg-container {
+    margin: 0;
+    height: 95vh;
+    background-image: url(bg.jpg);
+    background-size: cover
+}
+
+.main-container {
+    display: flex;
+    width: 60vw;
+    height: 95vh;
+    margin: 0 auto;
+}
+
+.canvas-container {
+    margin: 0 auto;
+    padding: 15vh 0;
+}
+
+.info-canvas {
+    margin: 0 auto;
+    padding: 30vh 0 15vh 2vw;
+}
+
+.b{
+    border: 1px solid black;
+}
