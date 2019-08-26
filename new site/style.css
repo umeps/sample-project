@@ -1,0 +1,53 @@
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .bb{
+      display: inline-block;
+      border-bottom: 2px solid red;
+    }
+    .b{
+      border: 1px solid red;
+    }
+
+    .main-image{
+      background-image: url(sea.jpg);
+      background-size: cover;
+      height: 600px;
+      font-size: 54px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+/* footerのスライダー */
+    .slider {
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 40px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    /* .slick-slide {
+      transition: all ease-in-out .3s;
+      opacity: .2;
+    }
+
+    .slick-active {
+      opacity: .5;
+    }
+
+    .slick-current {
+      opacity: 1;
+    } */
+
+
