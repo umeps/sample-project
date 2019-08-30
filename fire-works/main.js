@@ -20,15 +20,21 @@ class Zanzo{
     constructor(x,y){
         this.x =x;
         this.y =y;
-        this.kill=true;
+        this.c =10;
+        this.kill =false;
     }
 
     update(){
-
+        if(this.kill)return;
+        if(--this.c==0)this.kill=ture;
     }
 
     draw(){
+        if(this.kill)return;
 
+        con.globalAlpha=1.0 * this.c/10;
+        con.fillStyle ="#ffee88";
+        con.fillRect(this.x>>8,this.y>>8,2,2);
     }
 }
 
@@ -88,24 +94,36 @@ class Hanabi{
         draw(){
             if(this.kill)return;
 
+            con.globalAlpha=1.0;
             con.fillStyle ="#ffee88";
             con.fillRect(this.x>>8,this.y>>8,2,2);
+            zanzo.push(
+                new Zanzo(this.x,this.y)
+            );
         }
 
 }
 
 //花火配列
 let hanabi =[];
+let zanzo  =[];
 
 
 //更新
 function update(){
+
+    for(let i = zanzo.length-1; i>=0; i--){
+        zanzo[i].update();
+        if(zanzo[i].kill)zanzo.splice(i,1);
+    }
 
 
     for(let i = hanabi.length-1; i>=0; i--){
         hanabi[i].update();
         if(hanabi[i].kill)hanabi.splice(i,1);
     }
+
+    
 }
 
 //描画
@@ -116,6 +134,10 @@ function draw(){
 
     for(let i = hanabi.length-1; i>0; i--){
         hanabi[i].draw();
+    }
+
+    for(let i = zanzo.length-1; i>0; i--){
+        zanzo[i].draw();
     }
 }
 
