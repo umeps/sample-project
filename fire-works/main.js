@@ -26,7 +26,7 @@ class Zanzo{
 
     update(){
         if(this.kill)return;
-        if(--this.c==0)this.kill=ture;
+        if(--this.c==0)this.kill=true;
     }
 
     draw(){
@@ -75,7 +75,7 @@ class Hanabi{
 
                     for(let i=-0; i<300; i++){
                         let r = rand(0,360);
-                        let s = rand(10,400);
+                        let s = rand(10,300);
                         let vx = Math.cos(r*Math.PI/180)*s;
                         let vy = Math.sin(r*Math.PI/180)*s;
 
@@ -152,7 +152,7 @@ function mainLoop(){
 document.onkeydown = function(e){
     if(e.keyCode==32){
         hanabi.push(
-            new Hanabi(SCREEN_W/2,SCREEN_H,0,-800,4)
+            new Hanabi(rand(200,700),SCREEN_H,0,-800,4)
         );
     }
 }
