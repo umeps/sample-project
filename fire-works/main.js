@@ -53,6 +53,7 @@ class Hanabi{
             if(hp==undefined){
                 this.hp =200;
                 this.type =0;
+            
             }
             else{
                 this.hp =hp;
