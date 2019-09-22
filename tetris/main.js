@@ -404,7 +404,7 @@ function checkLine(){
             se3.play();
             lineScore + lineCount;
             score += 100*(2**(lineCount-1));
-            
+            console.log(lineScore);
         }
 
         if (lineCount) {

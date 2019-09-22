@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="stylesheet" href="style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
@@ -15,24 +16,33 @@
         <div class="product row ">
 
             <div class="product-image col-3 offset-2">
-                <img v-bind:src="image" class="img-thumbnail">
+                <img :src="image" class="img-thumbnail">
             </div>
 
             <div class="product-info col-3 offset-2">
-                <h1>{{ product }}</h1>
-                <p v-if="inventory > 10">In stock</p>
-                <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
-                <p v-else>Out of stock</p>
-           
+                <h2 v-show=" inventory > 10 ">ON SALE!!!</h2>  
+                <h1>{{ title }}</h1>
+                <div v-if="inventory > 10">in stock</div>
+                <div v-else-if="inventory <= 10 && inventory > 0">almost sold out!</div>
+                <div v-else :class="{outStock: !instock}">out of stock</div>
+
                 <ul>
-                    <li v-for="detail in details">{{ detail }}</li>
-
+                  <li v-for="detail in details">{{ detail }}</li>
                 </ul>
-           
-           
-           
-            </div> 
 
+                
+                <div v-for="variant in variants" :key="variant.id" class="color-box" :style="{background:variant.color}" @mouseover="pointerColor(variant.image)">
+                </div>
+                
+                <div class="row">
+                <button type="button" class=" col-4" @click="addCart" :disabled="!instock"  :class="{disabledBtn: !instock }" >add cart</button>
+                <button type="button" class="btn btn-primary offset-1 col-4 " @click="removeCart">remove cart</button>
+                <p class="col-6">cart( {{ cart }} )</p>
+                </div>
+
+            </div>
+
+            
 
         </div>
     </div>

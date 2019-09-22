@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>サンプル</title>
+
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+
+</head>
+
+<body>
+  <div id="#app">
+    <b-button variant="info">Button</b-button>
+    <b-button variant="danger">Button</b-button>
+    <b-button variant="success">Button</b-button>
+    <b-button variant="warning">Button</b-button>
+
+    <div>
+        <b-button v-b-toggle.collapse-1 variant="primary">Toggle Collapse</b-button>
+        <b-collapse id="collapse-1" class="mt-2">
+          <b-card>
+            <p class="card-text">Collapse contents Here</p>
+            <b-button v-b-toggle.collapse-1-inner size="sm">Toggle Inner Collapse</b-button>
+            <b-collapse id="collapse-1-inner" class="mt-2">
+              <b-card>{{ message }}</b-card>
+            </b-collapse>
+          </b-card>
+        </b-collapse>
+      </div>
+  </div>
+
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CMutationObserver" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
