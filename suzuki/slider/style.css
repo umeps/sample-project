@@ -1,0 +1,29 @@
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    * {
+      box-sizing: border-box;
+    }
+
+/* footerのスライダー */
+    .slider {
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 40px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+@media screen and (max-width: 480px){
+
+  .br::after{
+    content: "\A" ;
+    white-space: pre ;
+  }
+}
