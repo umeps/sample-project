@@ -1,9 +1,8 @@
 
 
-// rand = Math.floor( Math.random()*4)+1;
-// // console.log(rand);
 // function lot(){
-//     // let lots =document.getElementById(lot);
+    
+//     rand = Math.floor(Math.random()*4)+1;
 //     let ans = rand ;
 //     alert(rand);
 //     if(ans==1){
