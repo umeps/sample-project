@@ -35,18 +35,73 @@ const renderer = new THREE.WebGLRenderer();
         });
 
   controls = new THREE.OrbitControls(camera, renderer.domElement);
+  
 
 //create the shape
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+const geometry = new THREE.BoxGeometry( 2, 2, 2 );
+
+var cubeMaterials =
+[
+        new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('img/1.jpg'), side:THREE.DoubleSide }),  //rigth
+        new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('img/2.jpg'), side:THREE.DoubleSide }),  //left
+        new THREE.MeshLambertMaterial({ map: new THREE.TextureLoader().load('img/3.jpg'), side:THREE.DoubleSide }),  //top
+        new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('img/4.jpg'), side:THREE.DoubleSide }),  //bottom
+        new THREE.MeshLambertMaterial({ map: new THREE.TextureLoader().load('img/5.jpg'), side:THREE.DoubleSide }),  //front
+        new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('img/6.jpg'), side:THREE.DoubleSide })   //back
+
+];
 
 //create material, coloer or image texture
-const material = new THREE.MeshBasicMaterial( { color:0xFFFFFF, wireframe: true} );
+const material = new THREE.MeshFaceMaterial(cubeMaterials);
 
 const cube =new THREE.Mesh( geometry, material );
 
 scene.add( cube );
 
 camera.position.z = 3;
+
+//下の画像
+let floorGeometry = new THREE.CubeGeometry( 10, 1, 10 );
+let floorMaterial = new THREE.MeshLambertMaterial({ map: new THREE.TextureLoader().load('img/turf.jpg'), side:THREE.DoubleSide }); //下
+let floorCube = new THREE.Mesh(floorGeometry, floorMaterial );
+floorCube.position.y = -5;
+scene.add(floorCube);
+
+//下の画像
+let ceilingGeometry = new THREE.CubeGeometry( 10, 1, 10 );
+let ceilingMaterial = new THREE.MeshLambertMaterial({ map: new THREE.TextureLoader().load('img/dist.jpg'), side:THREE.DoubleSide }); //下
+let ceilingCube = new THREE.Mesh(ceilingGeometry, ceilingMaterial );
+ceilingCube.position.y = 5;
+scene.add(ceilingCube);
+
+//左の画像
+let leftwallGeometry = new THREE.CubeGeometry( 1, 10, 10 );
+let leftwallMaterial = new THREE.MeshLambertMaterial({ map: new THREE.TextureLoader().load('img/7.jpg'), side:THREE.DoubleSide }); //下
+let leftwallCube = new THREE.Mesh(leftwallGeometry, leftwallMaterial );
+leftwallCube.position.x = 5;
+scene.add(leftwallCube);
+
+//右の画像
+let rightwallGeometry = new THREE.CubeGeometry( 1, 10, 10 );
+let rightwallMaterial = new THREE.MeshLambertMaterial({ map: new THREE.TextureLoader().load('img/7.jpg'), side:THREE.DoubleSide }); //下
+let rightwallCube = new THREE.Mesh(rightwallGeometry, rightwallMaterial );
+rightwallCube.position.x = -5;
+scene.add(rightwallCube);
+
+let frontwallGeometry = new THREE.CubeGeometry( 10, 10, 1 );
+let frontwallMaterial = new THREE.MeshLambertMaterial({ map: new THREE.TextureLoader().load('img/7.jpg'), side:THREE.DoubleSide }); //下
+let frontwallCube = new THREE.Mesh(frontwallGeometry, frontwallMaterial );
+frontwallCube.position.z = -5;
+scene.add(frontwallCube);
+
+let backwallGeometry = new THREE.CubeGeometry( 10, 10, 1 );
+let backwallMaterial = new THREE.MeshLambertMaterial({ map: new THREE.TextureLoader().load('img/7.jpg'), side:THREE.DoubleSide }); //下
+let backwallCube = new THREE.Mesh(backwallGeometry, backwallMaterial );
+backwallCube.position.z = 5;
+scene.add(backwallCube);
+
+let ambientLight = new THREE.AmbientLight( 0xFFFFFF, 2.0 );
+scene.add ( ambientLight );
 
 //game logic
 let updated = function() {
