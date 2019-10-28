@@ -5,7 +5,7 @@
   <meta charset="utf-8"/>
 
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nova+Round">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
   <script src="js/three.min.js"></script>
@@ -173,23 +173,13 @@
 
             <div id="menu">
                     <button id="sphere">PLANET</button>
-                    <button id="table">TABLE</button>
-                    <button id="helix">HELIX</button>
                     <button id="grid">CATEGORY</button>
             </div>
 
-               
-  
-  
+
   <script>
 
-$(function() {
-        var userAgent = window.navigator.userAgent.toLowerCase();
-        if (userAgent.indexOf('MSIE') != -1) {
-            $('#gesture').hide();
-            $('#menu').hide();
-        }
-	});
+
 	
 		var table = [
 
@@ -305,29 +295,6 @@ $(function() {
 
 			}
 
-			// helix ====================================
-
-			var vector = new THREE.Vector3();
-
-			for ( var i = 0, l = objects.length; i < l; i ++ ) {
-
-				var phi = i * 0.175 + Math.PI;
-
-				var object = new THREE.Object3D();
-
-				object.position.x = 1100 * Math.sin( phi );
-				object.position.y = - ( i * 8 ) + 450;
-				object.position.z = 1100 * Math.cos( phi );
-
-				vector.x = object.position.x * 2;
-				vector.y = object.position.y;
-				vector.z = object.position.z * 2;
-
-				object.lookAt( vector );
-
-				targets.helix.push( object );
-
-			}
 
 			// grid ====================================
 
@@ -343,7 +310,7 @@ $(function() {
 
 			}
 
-			//  ====================================
+			// //  ====================================
 
 			renderer = new THREE.CSS3DRenderer();
 			renderer.setSize( window.innerWidth, window.innerHeight );
@@ -356,13 +323,7 @@ $(function() {
 			controls.rotateSpeed = 0.5;
 			controls.addEventListener( 'change', render );
 
-			var button = document.getElementById( 'table' );
-			button.addEventListener( 'click', function ( event ) {
-
-				transform( targets.table, 2000 );
-
-			}, false );
-
+			
 			var button = document.getElementById( 'sphere' );
 			button.addEventListener( 'click', function ( event ) {
 
@@ -370,13 +331,7 @@ $(function() {
 
 			}, false );
 
-			var button = document.getElementById( 'helix' );
-			button.addEventListener( 'click', function ( event ) {
-
-				transform( targets.helix, 2000 );
-
-			}, false );
-
+			
 			var button = document.getElementById( 'grid' );
 			button.addEventListener( 'click', function ( event ) {
 
