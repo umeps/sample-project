@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>three.js css3d - cresco xmas inspired by periodic table</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link type="text/css" rel="stylesheet" href="https://threejs.org/examples/main.css">
+	<style>
+		a {
+			color: #8ff;
+		}
+
+		#menu {
+			position: absolute;
+			bottom: 20px;
+			width: 100%;
+			text-align: center;
+		}
+
+		.element {
+			width: 120px;
+			height: 160px;
+			box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.5);
+			border: 1px solid rgba(127, 255, 255, 0.25);
+			font-family: Helvetica, sans-serif;
+			text-align: center;
+			line-height: normal;
+			cursor: default;
+		}
+
+		.element:hover {
+			box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.75);
+			border: 1px solid rgba(127, 255, 255, 0.75);
+		}
+
+		.element .number {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			font-size: 12px;
+			color: rgba(127, 255, 255, 0.75);
+		}
+
+		.element .symbol {
+			position: absolute;
+			top: 40px;
+			left: 0px;
+			right: 0px;
+			font-size: 60px;
+			font-weight: bold;
+			color: rgba(255, 255, 255, 0.75);
+			text-shadow: 0 0 10px rgba(0, 255, 255, 0.95);
+		}
+
+		.element .details {
+			position: absolute;
+			bottom: 15px;
+			left: 0px;
+			right: 0px;
+			font-size: 12px;
+			color: rgba(127, 255, 255, 0.75);
+		}
+
+        .element,.element img {
+            width: 390px;
+            height: 225px
+        }
+
+		button {
+			color: rgba(127, 255, 255, 0.75);
+			background: transparent;
+			outline: 1px solid rgba(127, 255, 255, 0.75);
+			border: 0px;
+			padding: 5px 10px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: rgba(0, 255, 255, 0.5);
+		}
+
+		button:active {
+			color: #000000;
+			background-color: rgba(0, 255, 255, 0.75);
+		}
+	</style>
+</head>
+
+<body>
+	
+
+	<div id="info"><a href="http://threejs.org" target="_blank" rel="noopener">three.js css3d</a> - cresco xmas inspired
+		by periodic table.</div>
+	<div id="container"></div>
+	<div id="menu">
+		<button id="table">TABLE</button>
+		<button id="sphere">SPHERE</button>
+	</div>
+
+	<!-- <script> -->
+	<script type="module">
+
+    
+		import * as THREE from 'https://threejs.org/build/three.module.js';
+		import { TWEEN } from 'https://threejs.org/examples/jsm/libs/tween.module.min.js';
+		import { TrackballControls } from 'https://threejs.org/examples/jsm/controls/TrackballControls.js';
+		import { CSS3DRenderer, CSS3DObject } from 'https://threejs.org/examples/jsm/renderers/CSS3DRenderer.js';
+        
+        var table = [
+            "2.jpg","https://webnaut.jp/column/20171010-3560/","Column",1,1,
+			"2.jpg","https://webnaut.jp/column/20170705-3214/","Column",1,2,
+			"2.jpg","https://webnaut.jp/column/20170331-2565/","Column",1,3,
+			"2.jpg","https://webnaut.jp/column/20170316-2279/","Column",1,4,
+			"2.jpg","https://webnaut.jp/column/20170105-1761/","Column",1,5,
+			"2.jpg","https://webnaut.jp/design/1178.html","Column",1,6,
+			"2.jpg","https://webnaut.jp/others/1176.html","Column",1,7,
+			"2.jpg","https://webnaut.jp/direction/1137.html","Column",1,8,
+			"2.jpg","https://webnaut.jp/direction/1132.html","Column",1,9,
+			"2.jpg","https://webnaut.jp/know-how/20171013-3631/","Design",2,1,
+			"2.jpg","https://webnaut.jp/design/20170919-3462/","Design",2,2,
+			"2.jpg","https://webnaut.jp/design/20170831-3361/","Design",2,3,
+			"2.jpg","https://webnaut.jp/design/20170330-2303/","Design",2,4,
+			"2.jpg","https://webnaut.jp/design/20170313-2228/","Design",2,5,
+			"2.jpg","https://webnaut.jp/design/20170201-2011/","Design",2,6,
+			"2.jpg","https://webnaut.jp/design/1210.html","Design",2,7,
+			"2.jpg","https://webnaut.jp/design/1206.html","Design",2,8,
+			"2.jpg","https://webnaut.jp/design/1204.html","Design",2,9,
+			"2.jpg","https://webnaut.jp/know-how/20171013-3631/","Design",3,1,
+			"2.jpg","https://webnaut.jp/know-how/20170905-3415/","Know-how",3,2,
+			"2.jpg","https://webnaut.jp/know-how/20170628-3187/","Know-how",3,3,
+			"2.jpg","https://webnaut.jp/know-how/20170619-3153/","Know-how",3,4,
+			"2.jpg","https://webnaut.jp/know-how/20170421-2936/","Know-how",3,5,
+			"2.jpg","https://webnaut.jp/know-how/20170404-2461/","Know-how",3,6,
+			"2.jpg","https://webnaut.jp/know-how/20170328-2379/","Know-how",3,7,
+			"2.jpg","https://webnaut.jp/others/1166.html","Know-how",3,8,
+			"2.jpg","https://webnaut.jp/others/621.html","Know-how",3,9,
+			"2.jpg","https://webnaut.jp/technology/20170407-2421/","Technology",4,1,
+			"2.jpg","https://webnaut.jp/technology/20170306-2167/","Technology",4,2,
+			"2.jpg","https://webnaut.jp/technology/20170126-1990/","Technology",4,3,
+			"2.jpg","https://webnaut.jp/technology/20170118-1828/","Technology",4,4,
+			"2.jpg","https://webnaut.jp/technology/20170116-1913/","Technology",4,5,
+			"2.jpg","https://webnaut.jp/direction/1164.html","Technology",4,6,
+			"2.jpg","https://webnaut.jp/others/1165.html","Technology",4,7,
+			"2.jpg","https://webnaut.jp/markup/1157.html","Technology",4,8,
+			"2.jpg","https://webnaut.jp/markup/1138.html","Technology",4,9,
+		];
+	
+		var camera, scene, renderer;
+		var controls;
+		var objects = [];
+		var targets = { table: [], sphere: [], helix: [], grid: [] };
+		init();
+		animate();
+		function init() {
+			camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
+			camera.position.z = 3000;
+			scene = new THREE.Scene();
+			// table
+			for (var i = 0; i < table.length; i += 5) {
+				var element = document.createElement('a');
+				element.className = 'element'+ table[ i + 2];
+                element.setAttribute("href",table[ i + 1 ])
+                // element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+
+                var symbol = document.createElement('img');
+                symbol.src = table[ i ];
+                element.appendChild(symbol);
+
+				var object = new CSS3DObject(element);
+				object.position.x = Math.random() * 4000 - 2000;
+				object.position.y = Math.random() * 4000 - 2000;
+				object.position.z = Math.random() * 4000 - 2000;
+				scene.add(object);
+                
+                objects.push(object);
+				var object = new THREE.Object3D();
+				object.position.x = (table[i + 3] * 140) - 1330;
+				object.position.y = - (table[i + 4] * 180) + 990;
+				targets.table.push(object);
+			}
+			// sphere
+			var vector = new THREE.Vector3();
+			for (var i = 0, l = objects.length; i < l; i++) {
+				var phi = Math.acos(- 1 + (2 * i) / l);
+				var theta = Math.sqrt(l * Math.PI) * phi;
+				var object = new THREE.Object3D();
+				object.position.setFromSphericalCoords(800, phi, theta);
+				vector.copy(object.position).multiplyScalar(2);
+				object.lookAt(vector);
+				targets.sphere.push(object);
+			}
+		
+			renderer = new CSS3DRenderer();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			document.getElementById('container').appendChild(renderer.domElement);
+            //
+            
+			controls = new TrackballControls(camera, renderer.domElement);
+			controls.minDistance = 500;
+            controls.maxDistance = 6000;
+            controls.rotateSpeed = 2.5;
+            controls.addEventListener('change', render);
+            
+			var button = document.getElementById('sphere');
+			button.addEventListener('click', function () {
+				transform(targets.sphere, 2000);
+			}, false);
+			
+			transform(targets.table, 2000);
+			//
+			window.addEventListener('resize', onWindowResize, false);
+		}
+		function transform(targets, duration) {
+			TWEEN.removeAll();
+			for (var i = 0; i < objects.length; i++) {
+				var object = objects[i];
+                var target = targets[i];
+                
+				new TWEEN.Tween(object.position)
+					.to({ x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration)
+					.easing(TWEEN.Easing.Exponential.InOut)
+                    .start();
+                    
+				new TWEEN.Tween(object.rotation)
+					.to({ x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration)
+					.easing(TWEEN.Easing.Exponential.InOut)
+					.start();
+			}
+			new TWEEN.Tween(this)
+				.to({}, duration * 2)
+				.onUpdate(render)
+				.start();
+		}
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			render();
+		}
+		function animate() {
+			requestAnimationFrame(animate);
+			TWEEN.update();
+			controls.update();
+		}
+		function render() {
+			renderer.render(scene, camera);
+		}
+	</script>
+</body>
+
+</html>
