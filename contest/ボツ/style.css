@@ -23,3 +23,17 @@ body{
     text-align: center;
 
 }
+
+.stm{
+    position: absolute;
+    bottom: -15vh;
+    right: -180px;
+}
+
+#container{
+    position: relative;
+}
+
+.bb{
+    border:1px solid;
+}
