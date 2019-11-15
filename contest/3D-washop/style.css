@@ -1,11 +1,8 @@
-*{
-    cursor: url(./img/csl.png), auto !important;
-}
 
 .element,
 .element img {
-    width: 400px;
-    height: 300px
+    width: 500px;
+    height: 600px
 }
 
 body{

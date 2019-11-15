@@ -28,11 +28,7 @@ $(document).ready(function(){
 
   $(document).ready(function(){
     $(".modal10").click(function(){
-        // for(let i=1;i<=2; i++){
-        //     if (i != 2){
-        //     $('#' + i).hide();
-        //     }
-        // }
+        
       $("#2").fadeToggle( "slow" );
     });
       
