@@ -6,8 +6,11 @@
 }
 
 body{
-    background: url(/ボツ/img/japanese.jpg);
+    background: url(/3D-washop/img/bard.jpg);
     background-repeat: no-repeat;
+    background-size: cover;
+    
+    
 }
 .menu{
     z-index: 1000;
@@ -21,11 +24,6 @@ body{
 
 }
 
-.stm{
-    position: absolute;
-    bottom: -15vh;
-    right: -180px;
-}
 
 #container{
     position: relative;
@@ -33,4 +31,12 @@ body{
 
 .bb{
     border:1px solid;
+}
+
+body{
+    font-family:Sawarabi Mincho !important;
+}
+
+section{
+    margin-top: 6em;
 }

@@ -33,16 +33,18 @@
 }
 
 .popup h2 ,.popupMaill h2{
-    font-family: 'Pathway Gothic One', sans-serif;
     font-size:36px;
     color:#000;
     text-transform:uppercase;
 }
 
 .popup a , .popupMaill a{
-    font-family: 'Pathway Gothic One', sans-serif;
-    font-size:16px;
+    font-size:72px;
     color:#000;
+    position: absolute;
+    top:-50px;
+    right: -20px;
+    text-decoration: none !important;
     text-transform:uppercase;
     -webkit-transition: .25s ease;
             transition: .25s ease;

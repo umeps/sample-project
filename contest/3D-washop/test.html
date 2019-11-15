@@ -5,36 +5,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
+	<script src="bg.js"></script>
+	<script> src="../3D-washop/js/jquery.bgswitcher.js"</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<style>
-		img.show{width: 200px;}
-		img{float: left;}
-		.com{border: 1px solid; width: 500px; height: 300px; margin: 0 ,auto; float: left;}
+		.bg-slider {
+	width: 100vw;
+	height: 100vh;
+	background-position:center center;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 	</style>
 </head>
 <body>
-	
-	<img src="12.jpg" alt="" class="img">
+		<div class="bg-slider"></div>
 
-	<div class="com">ここに説明</div>
-	
-	<form id="member">
-		<label for="sitename">参加者</label>
-		<input type="text" id="member" class="validate[required,minSize[3]]">
-	  </form>
-	<script>
-		$(function(){
-        $("#member").on('focus input',function(){
-          var num = $(this).val().replace(/\D/g, '');
-          $(this).val(num);
-
-        }).on('blur',function () {
-          var num = $(this).val().replace(/(\d)(?=(\d\d\d)+$)/g, '$1,');
-          $(this).val(num);
-
-        });
-      });
-
-	</script>
 </body>
 </html>

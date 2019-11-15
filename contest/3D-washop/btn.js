@@ -8,7 +8,6 @@ $(document).ready(function(){
         }
       $("#1").fadeToggle( "slow" );
     });
-      
   });
 
 
@@ -21,7 +20,7 @@ $(document).ready(function(){
         }
       $("#2").fadeToggle( "slow" );
     });
-      
+
   });
 
 
