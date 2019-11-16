@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>３D和菓子店舗</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nova+Round">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="modal.css">
+  <link rel="stylesheet" href="./css-loading-animation-12/dist/style.css"> <!--loading-->
+  
+  <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="main.js"></script>
+  <script src="btn.js"></script>
+</head>
+<body>
+
+		<div class="loader" id="loading">
+				<div class="inner one"></div>
+				<div class="inner two"></div>
+				<div class="inner three"></div>
+		</div>
+
+
+
+
+
+        <div id="container">
+				<div id="1" class="popup">
+					<h2>店舗情報</h2>
+					<div>室町時代後期の京都で創業。五世紀にわたり和菓子屋を営んできました。
+							後陽成天皇の御在位中（1586〜1611）より、御所の御用を勤めています。
+							<br>明治2年（1869）東京遷都にともない、天皇にお供して、京都の店はそのままに東京にも進出、現在に至ります。</div>
+					<a href="#" class="access">&#8855;</a>
+					<div class="row mt-4">
+						<div class="col-6 mr-3"><img src="./img/shop1.jpg" alt=""></div>
+						<div class="col-4 offset-1 text-left p-0">
+								<div class="row">住所：東京都府中市日吉町1-1</div>
+								<img src="./img/map.png" alt="" class="img-fluid">
+								<div class="row ">営業時間</div>
+								<div class="">9:00~17:00</div>
+								<div class="row ">定休日</div>
+								<div class="">不定休</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="2" class="popupMaill">
+						<h2>お問い合わせ</h2>
+						<a href="#" class="maill">&#8855;</a>
+						<section>
+								<div class="container">
+								  <div class="row">
+									<div class="col-md-10 col-lg-8 mx-auto text-center">
+
+									  <form>
+										  <div class="form-group ">
+											<label for="exampleInputName">氏名</label>
+											<input type="text" class="form-control" id="exampleInputName" placeholder="name">
+										  </div>
+										  <div class="form-group">
+											  <label for="exampleInputEmail1" >Eメールアドレス</label>
+											  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="e-mail">
+										  </div>
+										  <div class="form-group ">
+											<label for="exampleInputContent" >内容</label>
+											<input type="text" class="form-control" id="exampleInputContent" placeholder="content">
+										  </div>
+										  <div class="form-group form-check">
+											<input type="checkbox" class="form-check-input" id="exampleCheck1">
+											<label class="form-check-label " for="exampleCheck1">記憶する</label>
+										  </div>
+										  <button type="submit" class="btn btn-primary">送信する</button>
+										</form>
+							
+									</div>
+								  </div>
+								</div>
+							  </section>
+				</div>
+
+
+				<div id="11" class="modal011">
+						<h2>羊羹</h2>
+						<div>十勝産小豆の風味が豊かな夏の定番</div>
+						<a href="#" class="modal1">&#8855;</a>
+						<div class=" mt-4">
+							<img src="./img/1.png" alt="" class="img-fluid">
+						</div>
+					</div>
+
+				<div id="12" class="modal012">
+						<h2>どらやき</h2>
+						<div>十勝産の小豆をたっぷりはさんだ、昔ながらの味</div>
+						<a href="#" class="modal2">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/2.png" alt="" class="img-fluid">
+						</div>
+				</div>
+				
+				<div id="13" class="modal013">
+						<h2>苺大福</h2>
+						<div>厳選した大粒苺に合う様、特別に炊き上げた絶品の餡ととろけるようにやわらかい餅が大人気の一品。</div>
+						<a href="#" class="modal3">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/3.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="14" class="modal014">
+						<h2>かすてら</h2>
+						<div>バターたっぷり。隠し味に白餡を使用して、あっさりと仕上げたパウンド</div>
+						<a href="#" class="modal4">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/4.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="15" class="modal015">
+						<h2>柏餅</h2>
+						<div>甘さと味噌の塩味のバランスが絶妙です。なめらから口当たりの餡がたっぷり。</div>
+						<a href="#" class="modal5">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/5.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="16" class="modal016">
+						<h2>たいやき</h2>
+						<div>小麦粉だけで焼き上げられた薄くカリッとした皮と、強い小豆を使用しているのが特徴。
+							一口ほおばると、皮はウエハースのようにスーッと溶けてなくなり、中から優しい甘さのあんこが！</div>
+						<a href="#" class="modal6">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/6.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="17" class="modal017">
+						<h2>秋月</h2>
+						<div>美しい月（栗）が川面（羊羹）に映ります</div>
+						<a href="#" class="modal7">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/7.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="18" class="modal018">
+						<h2>あやめ</h2>
+						<div>鮮やかで神秘的な美しい花です</div>
+						<a href="#" class="modal8">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/8.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="19" class="modal019">
+						<h2>びく</h2>
+						<div>鮎の解禁が待ち遠しい…</div>
+						<a href="#" class="modal9">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/9.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="20" class="modal020">
+						<h2>びわ</h2>
+						<div>大きさ、形、色、どれをとっても本物そっくり！！</div>
+						<a href="#" class="modal10">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/10.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="21" class="modal021">
+						<h2>栗むしようかん</h2>
+						<div>含ませ蒸した新栗をぎっしり敷き詰めました</div>
+						<a href="#" class="modal11">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/11.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="22" class="modal022">
+						<h2>みかん</h2>
+						<div>甘味たっぷりのみかんです</div>
+						<a href="#" class="modal12">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/12.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="23" class="modal023">
+						<h2>菜の花</h2>
+						<div>春はすぐそこに…</div>
+						<a href="#" class="modal13">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/13.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="24" class="modal024">
+						<h2>りんご</h2>
+						<div>津軽平野は真っ赤な実でいっぱいです</div>
+						<a href="#" class="modal14">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/14.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="25" class="modal025">
+						<h2>山茶花（さざんか）</h2>
+						<div>冬景色に映える赤い花</div>
+						<a href="#" class="modal15">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/15.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="26" class="modal026">
+						<h2>東福寺（とうふくじ）</h2>
+						<div>紅葉の名所を表現しました</div>
+						<a href="#" class="modal16">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/16.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+
+				<div id="27" class="modal027">
+						<h2>山茶花（さざんか）</h2>
+						<div>年が明けて最初に咲く花「百花初見」と言われます。正月のおめでたい練切です</div>
+						<a href="#" class="modal17">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/17.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+
+				<div id="28" class="modal028">
+						<h2>雪うさぎ</h2>
+						<div>小さな赤いお目々が愛らしい</div>
+						<a href="#" class="modal18">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/18.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="29" class="modal029">
+						<h2>天の川</h2>
+						<div>ハートの織姫と彦星、年に一度の大切な日</div>
+						<a href="#" class="modal19">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/19.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="30" class="modal030">
+						<h2>朝顔</h2>
+						<div>羊羹の花びらが涼しげです</div>
+						<a href="#" class="modal20">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/20.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="31" class="modal031">
+						<h2>富有柿（ふゆうがき）</h2>
+						<div>割ってびっくり、金時豆を種にみたてた柿のミニチュアです</div>
+						<a href="#" class="modal21">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/21.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="32" class="modal032">
+						<h2>ハロウィン</h2>
+						<div>小さいけれど「オバケかぼちゃ」です</div>
+						<a href="#" class="modal22">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/22.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="33" class="modal033">
+						<h2>花ごよみ</h2>
+						<div>白梅・なでしこ・桜をあしらった草求肥</div>
+						<a href="#" class="modal23">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/23.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="34" class="modal034">
+						<h2>着せ綿（きせわた）</h2>
+						<div>菊の花を真綿で覆い、色と香りを移しとり長寿を願った伝統行事です</div>
+						<a href="#" class="modal24">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/24.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="35" class="modal035">
+						<h2>ころ柿</h2>
+						<div>求肥本来のおいしさが味わえます</div>
+						<a href="#" class="modal25">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/25.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="36" class="modal036">
+						<h2>栗形</h2>
+						<div>含ませ蒸した新栗がまるごと入っています</div>
+						<a href="#" class="modal26">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/26.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="37" class="modal037">
+						<h2>織部</h2>
+						<div>織部焼の深い緑を映した気品溢れる伝統の一品</div>
+						<a href="#" class="modal27">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/27.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="38" class="modal038">
+						<h2>せせらぎ</h2>
+						<div>羊羹の小川で鮎が飛び跳ねます</div>
+						<a href="#" class="modal28">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/28.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="39" class="modal039">
+						<h2>裏桜（うらざくら）</h2>
+						<div>満開の桜を下から眺めています</div>
+						<a href="#" class="modal29">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/29.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="40" class="modal040">
+						<h2>道明寺（どうみょうじ）</h2>
+						<div>もちもち・つぶつぶの食感に、大島桜葉の塩漬けがアクセント</div>
+						<a href="#" class="modal30">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/30.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="41" class="modal041">
+						<h2>やぶこうじ</h2>
+						<div>まるい赤い実が宝石のように輝きます</div>
+						<a href="#" class="modal31">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/31.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="42" class="modal042">
+						<h2>吉野山</h2>
+						<div>「花は桜の吉野山」春の美しい景色を表現した饅頭</div>
+						<a href="#" class="modal32">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/32.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+				<div id="43" class="modal043">
+						<h2>柚子饅頭</h2>
+						<div>無農薬栽培の柚子を生地に練り込んださわやかな香り</div>
+						<a href="#" class="modal33">&#8855;</a>
+						<div class=" mt-4 m-auto">
+						<img src="./img/33.png" alt="" class="img-fluid">
+						</div>
+				</div>
+
+
+
+
+
+					<div class="btn1" style="z-index: 99999;">
+							<div id="wrap">
+									<a href="#" class="access"><i class="fas fa-home"></i></a>  
+									<a href="#" class="maill"><i class="fas fa-envelope mt-3"></i> </a>
+							</div>
+					</div>
+		</div>
+  <script type="module">
+	  	import * as THREE from 'https://threejs.org/build/three.module.js';
+		import { TWEEN } from 'https://threejs.org/examples/jsm/libs/tween.module.min.js';
+		import { TrackballControls } from 'https://threejs.org/examples/jsm/controls/TrackballControls.js';
+		import { CSS3DRenderer, CSS3DObject } from 'https://threejs.org/examples/jsm/renderers/CSS3DRenderer.js';
+
+		
+
+		var table = [
+
+            "img/1.png","#","modal1",1,1,
+			"img/2.png","#","modal2",1,2,
+			"img/3.png","#","modal3",1,3,
+			"img/4.png","#","modal4",1,4,
+			"img/5.png","#","modal5",1,5,
+			"img/6.png","#","modal6",1,6,
+			"img/7.png","#","modal7",1,7,
+			"img/8.png","#","modal8",1,8,
+			"img/9.png","#","modal9",1,9,
+			"img/10.png","#","modal10",2,1,
+			"img/11.png","#","modal11",2,2,
+			"img/12.png","#","modal12",2,3,
+			"img/13.png","#","modal13",2,4,
+			"img/14.png","#","modal14",2,5,
+			"img/15.png","#","modal15",2,6,
+			"img/16.png","#","modal16",2,7,
+			"img/17.png","#","modal17",2,8,
+			"img/18.png","#","modal18",2,9,
+			"img/19.png","#","modal19",3,1,
+			"img/20.png","#","modal20",3,2,
+			"img/21.png","#","modal21",3,3,
+			"img/22.png","#","modal22",3,4,
+			"img/23.png","#","modal23",3,5,
+			"img/24.png","#","modal24",3,6,
+			"img/25.png","#","modal25",3,7,
+			"img/26.png","#","modal26",3,8,
+			"img/27.png","#","modal27",3,9,
+			"img/28.png","#","modal28",4,1,
+			"img/29.png","#","modal29",4,2,
+			"img/30.png","#","modal30",4,3,
+			"img/31.png","#","modal31",4,4,
+			"img/32.png","#","modal32",4,5,
+			"img/33.png","#","modal33",4,6,
+			// "img/34.png","#","modal34",4,7,
+			// "img/6.png","#","Technology",4,8,
+			// "img/3.png","#","Technology",4,9,
+			
+
+
+		];
+
+		var camera, scene, renderer;
+		var controls;
+		var objects = [];
+		var targets = { table: [], sphere: [], helix: [], grid: [] };
+		init();
+		animate();
+		function init() {
+
+			camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 5000 );
+			camera.position.z = 3000;
+			scene = new THREE.Scene();
+
+			for ( var i = 0; i < table.length; i += 5 ) {
+
+				var element = document.createElement( 'a' );
+				element.className = 'element ' + table[ i + 2];
+				element.setAttribute("href",table[ i + 1 ])
+				// element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+
+				var symbol = document.createElement( 'img' );
+				symbol.src = table[ i ];
+				element.appendChild( symbol );
+
+				var object = new CSS3DObject(element);
+				object.position.x = Math.random() * 4000 - 2000;
+				object.position.y = Math.random() * 4000 - 2000;
+				object.position.z = Math.random() * 4000 - 2000;
+				scene.add(object);
+
+                objects.push(object);
+				var object = new THREE.Object3D();
+				object.position.x = (table[i + 3] * 140) - 1330;
+				object.position.y = - (table[i + 4] * 180) + 990;
+				targets.table.push(object);
+
+			}
+
+			var vector = new THREE.Vector3();
+			for ( var i = 0, l = objects.length; i < l; i ++ ) {
+				var phi = Math.acos( -1 + ( 2 * i ) / l );
+				var theta = Math.sqrt( l * Math.PI ) * phi;
+				var object = new THREE.Object3D();
+				object.position.setFromSphericalCoords(1600, phi, theta);
+				vector.copy( object.position ).multiplyScalar( 2 );
+				object.lookAt( vector );
+				targets.sphere.push( object );
+			}
+
+			renderer = new CSS3DRenderer();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			document.getElementById('container').appendChild(renderer.domElement);
+
+			controls = new TrackballControls(camera, renderer.domElement);
+			controls.minDistance = 500;
+            controls.maxDistance = 6000;
+            controls.rotateSpeed = 3;
+            controls.addEventListener('change', render);
+
+			transform( targets.sphere, 2000 );
+			window.addEventListener( 'resize', onWindowResize, false );
+		}
+
+		function transform( targets, duration ) {
+			TWEEN.removeAll();
+
+			for ( var i = 0; i < objects.length; i ++ ) {
+
+				var object = objects[ i ];
+				var target = targets[ i ];
+
+				new TWEEN.Tween( object.position )
+					.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
+					.easing( TWEEN.Easing.Exponential.InOut )
+					.start();
+
+				new TWEEN.Tween( object.rotation )
+					.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+					.easing( TWEEN.Easing.Exponential.InOut )
+					.start();
+
+			}
+
+			new TWEEN.Tween( this )
+				.to( {}, duration * 2 )
+				.onUpdate( render )
+				.start();
+
+
+		}
+
+
+		function onWindowResize() {
+
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+
+		}
+
+		function animate() {
+
+			requestAnimationFrame( animate );
+			TWEEN.update();
+			controls.update();
+
+		}
+
+		function render() {
+			
+			renderer.render( scene, camera );
+			
+			
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+.element,
+.element img {
+    width: 70%;
+    height: 90%;
+}
+
+@media screen and (max-width: 480px){
+   
+}
+
+body{
+    background: url(/3D-washop/img/bard.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+}
+.menu{
+    z-index: 1000;
+}
+
+.btn1{
+    width: 100px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+
+}
+
+
+#container{
+    position: relative;
+}
+
+.bb{
+    border:1px solid;
+}
+
+body{
+    font-family:Sawarabi Mincho !important;
+}
+
+section{
+    margin-top: 6em;
+}
