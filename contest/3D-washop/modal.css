@@ -8,7 +8,7 @@
             transition: .25s ease;
 }
 
-.popup ,.popupMaill{
+.popup, .popupMaill, .modal011, .modal012, .modal013, .modal014, .modal015, .modal016, .modal017, .modal018, .modal019, .modal020, .modal021, .modal022, .modal023, .modal024, .modal025, .modal026, .modal027, .modal028, .modal029, .modal030, .modal031, .modal032, .modal033, .modal034, .modal035, .modal036, .modal037, .modal038, .modal039, .modal040, .modal041, .modal042, .modal043{
     display: none;
     position: absolute;
     z-index: 1000;
@@ -32,13 +32,13 @@
     
 }
 
-.popup h2 ,.popupMaill h2{
+.popup h2, .popupMaill h2, .modal011 h2, .modal012 h2, .modal013 h2, .modal014 h2, .modal015 h2, .modal016 h2, .modal017 h2, .modal018 h2, .modal019 h2, .modal020 h2, .modal021 h2, .modal022 h2, .modal023 h2, .modal024 h2, .modal025 h2, .modal026 h2, .modal027 h2, .modal028 h2, .modal029 h2, .modal030 h2, .modal031 h2, .modal032 h2, .modal033 h2, .modal034 h2, .modal035 h2, .modal036 h2, .modal037 h2, .modal038 h2, .modal039 h2, .modal040 h2, .modal041 h2, .modal042 h2, .modal043 h2{
     font-size:36px;
     color:#000;
     text-transform:uppercase;
 }
 
-.popup a , .popupMaill a{
+.popup a, .popupMaill a, .modal011 a, .modal012 a, .modal013 a, .modal014 a, .modal015 a, .modal016 a, .modal017 a, .modal018 a, .modal019 a, .modal020 a, .modal021 a, .modal022 a, .modal023 a, .modal024 a, .modal025 a, .modal026 a, .modal027 a, .modal028 a, .modal029 a, .modal030 a, .modal031 a, .modal032 a, .modal033 a, .modal034 a, .modal035 a, .modal036 a, .modal037 a, .modal038 a, .modal039 a, .modal040 a, .modal041 a, .modal042 a, .modal043 a{
     font-size:72px;
     color:#000;
     position: absolute;
@@ -56,7 +56,12 @@
 }
 
 
+.modal011 img, .modal012 img, .modal013 img, .modal014 img, .modal015 img, .modal016 img, .modal017 img, .modal018 img, .modal019 img, .modal020 img, .modal021 img, .modal022 img, .modal023 img, .modal024 img, .modal025 img, .modal026 img, .modal027 img, .modal028 img, .modal029 img, .modal030 img, .modal031 img, .modal032 img, .modal033 img, .modal034 img, .modal035 img, .modal036 img, .modal037 img, .modal038 img, .modal039 img, .modal040 img, .modal041 img, .modal042 img, .modal043 img{
+    width: 50%;
+    margin-top: 2em;
+}
 
-
-
-
+.modal011, .modal012, .modal013, .modal014, .modal015, .modal016, .modal017, .modal018, .modal019, .modal020, .modal021, .modal022, .modal023, .modal024, .modal025, .modal026, .modal027, .modal028, .modal029, .modal030, .modal031, .modal032, .modal033, .modal034, .modal035, .modal036, .modal037, .modal038, .modal039, .modal040, .modal041, .modal042, .modal043{
+    width:40vw;
+    height:50vh;
+}

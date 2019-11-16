@@ -1,8 +1,12 @@
 
 .element,
 .element img {
-    width: 500px;
-    height: 600px
+    width: 70%;
+    height: 90%;
+}
+
+@media screen and (max-width: 480px){
+   
 }
 
 body{
