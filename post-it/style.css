@@ -1,0 +1,31 @@
+body {
+  background: pink;
+}
+
+body #app h3 {
+  font-size: 3rem;
+}
+
+body .text-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body input {
+  padding: 1rem;
+}
+
+body button {
+  padding: 1rem;
+  margin: .5rem;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+ul {
+  list-style: none;
+}
+/*# sourceMappingURL=style.css.map */

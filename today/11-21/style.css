@@ -1,0 +1,21 @@
+h1{
+    border-left: 10px solid black;
+}
+
+h2{
+    border-left: 10px solid black;
+    border-bottom: 5px dashed black;
+    background: blue;
+}
+
+
+ul{
+    background: rgb(207, 201, 201);
+    padding: 0;
+}
+li{
+    list-style: none;
+    border-bottom: 5px dotted black;
+    background: red;
+    margin-left: 0;
+}

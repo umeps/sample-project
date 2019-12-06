@@ -1,0 +1,44 @@
+.toilet-box {
+  width: 30rem;
+  height: 30rem;
+  background: #686262;
+  margin: auto;
+}
+
+.toilet-box .toilet-view img {
+  width: 100%;
+}
+
+.toilet-box .button {
+  width: 50%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.toilet-box .button button {
+  padding: 2rem;
+  margin: 1rem;
+  border-radius: 50%;
+}
+
+#wrap {
+  position: relative;
+  width: 100%;
+  max-width: 318px;
+  margin: auto;
+}
+
+.toilet-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 200px;
+  background: #E74C3C;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,23 @@
+#table {
+
+    margin:0 auto;
+    border-collapse: collapse;
+    border: 3px solid #ccc;
+
+}
+
+#table td {
+
+    border:1px solid #ccc;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 75px;
+    cursor: pointer;
+
+}
+
+h1{
+    text-align: center;
+}

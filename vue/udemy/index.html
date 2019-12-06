@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <p>今は{{ count }}回押されています</p>
+        <button @click="countUp">おす</button>
+        <p>現在{{ less }}</p>
+
+        <h1 :class="obj">HELLOW</h1>
+        <button @click="act = !act">色切り替え</button>
+
+        <h1 :style="object">HELLOW</h1>
+
+        <div v-for="fruit in fruits" :key="fruit">
+            <p>{{ fruit }}</p>
+            <input type="text">
+        </div>
+        <button @click="remove">消す</button>
+        <my-com></my-com>
+
+    </div>
+    
+
+    <script src="main.js"></script>
+</body>
+</html>

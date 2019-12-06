@@ -1,0 +1,41 @@
+header{
+
+    ul{
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+
+        li{
+            padding: 1rem;
+            margin: 1rem;
+            border: 2px solid black;
+        }
+}
+
+.main{
+
+    .mainCon{
+            text-align: center;
+
+
+        img{
+            width: 50%;
+        }
+    }
+}
+
+.card{
+    
+    .item{
+        display: flex;
+        justify-content: space-around;
+    }
+
+        .item-card{
+            width: 20vw;
+            height: 40vh;
+            background: rgb(92, 81, 81);
+            border: 2px solid black;
+        }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <title>丸罰ゲーム</title>
+    
+</head>
+<body>
+    <div id="app">
+        <h1>Vueで○×ゲーム</h1>
+        <table id="table">
+            <tr v-for="(row,rowsIndex) in states">
+                <td v-for="(state,colsIndex) in row" @click="onSelect(rowsIndex, colsIndex)">
+                    <div style="color:#f00;" v-if="state==1">○</div>
+                    <div style="color:#00f;" v-if="state==2">×</div>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div style="text-align:center;">
+            <div style="color:#f00;" v-if="playerId==1">「1Pプレイヤーさん、マスを選んでください」</div>
+            <div style="color:#00f;" v-if="playerId==2">「2Pプレイヤーさん、マスを選んでください」</div>
+        </div>
+        <br>
+        <div v-if="winnerText" style="text-align:center;">
+            <h2 v-text="winnerText"></h2>
+            <img src="./images/congrats.png">
+        </div>
+    </div>
+</body>
+
+<script src="main.js"></script>
+</html>
