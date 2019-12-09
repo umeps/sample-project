@@ -10,28 +10,29 @@
   <body>
         <main id="app">
           <h3>{{ title }}</h3>
+
           <div class="text-box">
               <form @submit.prevent="addTodo">
                 <label for="newTodo"></label>
-                <input v-model="newTodo" type="text" name="newTodo" id="newTodo">
+                <input v-model="newTodo" type="text" name="newTodo" id="newTodo" placeholder="やる事">
                 <button type="submit" name="button">add</button>
               </form>
               <button @click="allDone" type="submit" name="button">all remove</button>
-        </div>
+          </div>
 
-        
           <ul>
             <li v-for="(todo,index) in todos" :key="index">
               {{ index + 1 }}
               <input type="checkbox" v-model="todo.done">
               <span :class="{done: todo.done}">{{ todo.title }}</span>
-              <button @click="deleteTodo(index)"　v-if="todo.done">delete</button>
-              <select v-model="selected">
-                  <option disabled value="">選択して下さい</option>
-                  <option v-for="option in options" :value="option.name" :key="option.id">
+              
+              <select>
+                  <option  value="">...</option>
+                  <option v-for="(option,index) in options" :value="option.name" :key="index">
                       {{ option.name }}
                   </option>
               </select>
+              <button @click="deleteTodo(index)"　v-if="todo.done">delete</button>
             </li>
           </ul>
         </main>
