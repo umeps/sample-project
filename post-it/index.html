@@ -25,7 +25,7 @@
               {{ index + 1 }}
               <input type="checkbox" v-model="todo.done">
               <span :class="{done: todo.done}">{{ todo.title }}</span>
-              
+
               <select>
                   <option  value="">...</option>
                   <option v-for="(option,index) in options" :value="option.name" :key="index">

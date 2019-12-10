@@ -25,7 +25,8 @@ const app =new Vue({
     watch:{
         todos(){// todosが変更されたあとに,dataを更新
             this.setLocalStorage()
-        }
+        },
+        
     },
     methods: {
         setLocalStorage: function(){
@@ -33,10 +34,11 @@ const app =new Vue({
             window.localStorage.setItem('todoList' , json);// オブジェクトをlocalStorageに保存
         },
         addTodo(){
-            this.todos.push({
-                title: this.newTodo,
-                done:false,
-            });
+            if(this.newTodo != ''){
+                this.todos.push({
+                    title: this.newTodo,
+                    done:false,
+            })}
                 this.newTodo = '',
                 console.log(select)
         },
